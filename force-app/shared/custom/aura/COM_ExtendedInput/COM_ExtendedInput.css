@@ -1,0 +1,10 @@
+.THIS .info-icon {
+    position: absolute;
+    left: auto;
+    width: auto;
+    height: auto;
+    right: .75rem;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}

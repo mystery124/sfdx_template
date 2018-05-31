@@ -1,0 +1,21 @@
+{
+    "header": {
+        "success": false,
+        "dateTime": "2018-02-19T11:04:15.228Z",
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://test.com/events-api/v1/eventRegistrations?nuid=null&email=null&startDateRange=between:2017-02-19/2019-02-19&sorting=startDate:desc"
+            }
+        ],
+        "errors": {
+            "id": "827d4060-0387-4105-b2ef-6b2aa8c1353c",
+            "items": [
+                {
+                    "code": 100,
+                    "message": "Constraint Violation: constraint=RequiredParticipantArgsCheck; path=participantArgs.email; message=must be valid; invalidValue=ParticipantArgs{nuid=null, email=null}"
+                }
+            ]
+        }
+    }
+}

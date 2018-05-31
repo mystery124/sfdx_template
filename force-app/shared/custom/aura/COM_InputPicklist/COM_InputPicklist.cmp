@@ -1,0 +1,147 @@
+<aura:component description="COM_InputPicklist" extends="c:COM_CommonComponent">
+
+    <!--public attributes-->
+    <aura:attribute name="label" type="String" required="true" default="" />
+    <aura:attribute name="options" type="Object" description="COM_BaseComponentService.PicklistValue[]" required="true"/>
+    <aura:attribute name="selectedItems" type="String" required="true"/>
+    <aura:attribute name="width" type="String" default="100%;"/>
+    <aura:attribute name="dropdownLength" type="Integer" default="5"/>
+    <aura:attribute name="dropdownOver" type="Boolean" default="false"/>
+    <aura:attribute name="multiple" type="Boolean" default="false"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="class" type="String" default=""/>
+    <aura:attribute name="required" type="Boolean" default="false" />
+    <aura:attribute name="autocomplete" type="Boolean" default="false" />
+    <aura:attribute name="hideChecks" type="Boolean" default="false" />
+
+    <aura:attribute name="options_" type="Object" description="COM_BaseComponentService.PicklistValue[]" access="private"/>
+    <aura:attribute name="originalOptions" type="Object" description="COM_BaseComponentService.PicklistValue[]" access="private" />
+    <aura:attribute name="infoText" type="String" default="{#$Label.c.SelectAnOption}" access="private"/>
+    <aura:attribute name="isValid" type="Boolean" default="true" access="private" />
+    <aura:attribute name="searchTerm" type="String" default="" access="private" />
+    <aura:attribute name="searchTermBeforeNavigation" type="String" default="" access="private" />
+    <aura:attribute name="searchHint" type="String" default="" access="private" />
+    <aura:attribute name="optionsNavigation" type="Boolean" default="false" access="private" />
+    <aura:attribute name="focusedOptionIndex" type="Integer" default="0" access="private" />
+    <aura:attribute name="isFocusing" type="Boolean" default="false" access="private" />
+
+    <aura:registerEvent name="selectChange" type="c:COM_InputPicklistChangeEvent"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.selectedItems}" action="{!c.handleSelectedItemsChange}"/>
+    <aura:handler name="change" value="{!v.options}" action="{!c.init}"/>
+
+    <aura:method name="reInit" action="{!c.init}"
+                 description="Allows the lookup to be reinitialized">
+    </aura:method>
+    <aura:method name="validate" action="{!c.validate}" />
+    <aura:method name="clearErrorMessage" action="{!c.clearErrorMessage}" />
+
+    <aura:if isTrue="{!not(v.disabled)}">
+        <div class="{!'slds-form-element ' + v.class + (v.isValid ? '' : ' slds-has-error')}">
+            <label class="{#'slds-form-element__label ' + (empty(v.label) ? 'slds-hide' : '')}" for="multi-select">
+                <abbr class="{!v.required ? 'slds-required' : ' slds-hide'}" title="required">*</abbr>
+                <span>{#v.label}</span>
+            </label>
+            <div class="slds-form-element__control">
+                <div aura:id="main-div" class=" slds-picklist slds-dropdown-trigger_click height22px">
+                    <!--the disclosure triangle button-->
+                    <aura:if isTrue="{#v.autocomplete}">
+                        <div class="slds-input-has-icon slds-input-has-icon_right"
+                             onclick="{!c.handleClick}"
+                        >
+                            <div class="input-container slds-is-relative">
+                                <input class="slds-button slds-button_neutral slds-picklist__label picklist-input slds-icon slds-input hint-input" 
+                                       style="{#'width:' + v.width}"
+                                       type="text" 
+                                       aria-haspopup="true" 
+                                       value="{!v.searchHint}"
+                                       tabindex="-1"
+                                />
+                                <input type="text" 
+                                       aura:id="picklistInput"
+                                       class="{!'slds-button slds-button_neutral slds-picklist__label picklist-input slds-icon slds-input transparent-background' + (v.isValid ? '' : ' slds-has-error')}"
+                                       placeholder="{!v.infoText}" 
+                                       style="{#'width:' + v.width}" 
+                                       aria-haspopup="true" 
+                                       onmouseleave="{!c.handleMouseLeave}" 
+                                       oninput="{!c.filterOptions}"
+                                       value="{!v.searchTerm}"
+                                       onkeydown="{!c.handleKeyDown}"
+                                       onfocusout="{!c.handleFocusOut}"
+                                       onfocus="{!c.handleFocus}"
+                                       onblur="{!c.handleOnBlur}"
+                                />
+                            </div>
+                            <lightning:icon iconName="utility:down" 
+                                            size="x-small" 
+                                            class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default"
+                            />
+                        </div>
+                        <aura:set attribute="else">
+                            <a class="{!'slds-button slds-button_neutral slds-picklist__label picklist-input slds-icon slds-input' + (v.isValid ? '' : ' slds-has-error')}"
+                               style="{#'width:' + v.width }" 
+                               aria-haspopup="true" 
+                               onclick="{!c.handleClick}" 
+                               onmouseleave="{!c.handleMouseLeave}" 
+                               onblur="{!c.handleOnBlur}"
+                            >
+                                <span class="slds-truncate" title="{!v.infoText}">{!v.infoText}</span>
+                                <lightning:icon iconName="utility:down" size="small" class="icon-right" />
+                            </a>
+                        </aura:set>
+                    </aura:if>
+
+                    <!--the multiselect list-->
+                    <div class="slds-dropdown slds-dropdown_left"
+                         aura:id="dropdown"
+                         style="{#'width:' + v.width + ';max-width:' + v.width + ';'}"
+                         onmouseenter="{!c.handleMouseEnter}"
+                         onmouseleave="{!c.handleMouseLeave}"
+                     >
+                        <ul class="{#'slds-dropdown__list slds-dropdown_length-' + v.dropdownLength + (v.hideChecks ? ' hide-checks' : '')}" 
+                            role="menu"
+                            aura:id="menu"
+                            onkeydown="{!c.navigate}"
+                            onfocusout="{!c.onDropdownFocusOut}"
+                        >
+                            <aura:iteration items="{!v.options_}" var="option">
+                                <li class="{!'slds-dropdown__item ' + (option.selected ? 'slds-is-selected' : '')}"
+                                    role="presentation" 
+                                    onclick="{!c.handleSelection}" 
+                                    data-value="{!option.value}"
+                                    data-selected="{!option.selected}"
+                                >
+                                    <a href="javascript:void(0);" 
+                                       role="menuitemcheckbox" 
+                                       aria-checked="true"
+                                       tabindex="-1"
+                                    >
+                                        <span class="slds-truncate">
+                                            <lightning:icon iconName="utility:check" 
+                                                            size="x-small"
+                                                            class="slds-icon slds-icon_selected slds-icon_x-small slds-icon-text-default slds-m-right_x-small"
+                                            />
+                                            {!option.label}
+                                        </span>
+                                    </a>
+                                </li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="{!'slds-form-element__help' + (v.isValid ? ' slds-hide' : '')}">{#$Label.c.ThisFieldIsRequired}</div>
+        </div>
+        <aura:set attribute="else">
+            <lightning:input name="{#v.label}"
+                             label="{#v.label}"
+                             variant="{!empty(v.label) ? 'label-hidden' : 'standard'}"
+                             value="{!v.infoText}"
+                             disabled="true"
+                             required="{!v.required}"
+            />
+        </aura:set>
+    </aura:if>
+</aura:component>

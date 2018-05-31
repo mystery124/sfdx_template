@@ -1,0 +1,6 @@
+<aura:component description="COM_CommonComponent" extensible="true" abstract="true" >
+
+    <aura:registerEvent name="showToast" type="c:COM_ShowToastEvent"/>
+
+    {!v.body}
+</aura:component>

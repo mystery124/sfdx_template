@@ -1,0 +1,4 @@
+.THIS .slds-popover{
+    position: fixed;
+    z-index: 9999;
+}

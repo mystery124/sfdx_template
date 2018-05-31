@@ -1,0 +1,31 @@
+<aura:component description="COM_Paginaton">
+    <aura:attribute name="currentPageNumber" type="Integer" required="true" />
+    <aura:attribute name="maxPageNumber" type="Integer" required="true" />
+    <aura:attribute name="disabled" type="Boolean" default="{!v.maxPageNumber == 0}" />
+
+    <div class="{!v.maxPageNumber > 1 ? 'slds-button-group' : 'slds-hide'}" role="group">
+        <button class="slds-button slds-button_neutral low"
+                onclick="{!c.firstPage}"
+                disabled="{!or(v.currentPageNumber le 1, v.disabled)}">
+            {#$Label.c.PageFirst}
+        </button>
+        <button class="slds-button slds-button_neutral low"
+                onclick="{!c.prevPage}"
+                disabled="{!or(v.currentPageNumber le 1, v.disabled)}">
+            {#$Label.c.PagePrevious}
+        </button>
+        <button class="slds-button slds-button_neutral low">
+            {!v.currentPageNumber + '/' + v.maxPageNumber}
+        </button>
+        <button class="slds-button slds-button_neutral low"
+                onclick="{!c.nextPage}"
+                disabled="{!or(v.currentPageNumber == v.maxPageNumber, v.disabled)}">
+            {#$Label.c.PageNext}
+        </button>
+        <button class="slds-button slds-button_neutral low"
+                onclick="{!c.lastPage}"
+                disabled="{!or(v.currentPageNumber == v.maxPageNumber, v.disabled)}">
+            {#$Label.c.PageLast}
+        </button>
+    </div>
+</aura:component>

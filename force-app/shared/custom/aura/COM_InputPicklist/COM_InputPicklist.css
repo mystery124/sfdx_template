@@ -1,0 +1,52 @@
+.THIS .icon-right svg.slds-icon {
+    right: 2.5%;
+}
+
+.THIS .picklist-input,
+.THIS div.slds-picklist div.slds-input-has-icon div.input-container input.picklist-input {
+    padding-left: .75rem;
+    overflow: hidden;
+}
+
+.THIS .picklist-input span {
+    font-size: .8125rem;
+}
+
+.THIS div.slds-picklist a.slds-button {
+    text-align: left;
+}
+
+.THIS .hide-checks .slds-icon {
+    display: none;
+}
+
+.THIS .input-container input,
+.THIS div.slds-picklist div.slds-input-has-icon div.input-container input.picklist-input {
+    margin-left: 0;
+}
+
+.THIS .hint-input,
+.THIS div.slds-picklist div.slds-input-has-icon div.input-container input.hint-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #999;
+}
+
+.THIS .transparent-background,
+.THIS div.slds-picklist div.slds-input-has-icon div.input-container input.transparent-background {
+    background-color: transparent;
+}
+
+.THIS input.slds-button {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.THIS .height22px input{
+    height: 22px;
+    min-height: 22px;
+}

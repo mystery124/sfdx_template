@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="COM_TableRowCheckboxEvent">
+    <aura:attribute name="tableName" type="String" />
+    <aura:attribute name="index" type="Integer" />
+    <aura:attribute name="isChecked" type="Boolean" />
+</aura:event>

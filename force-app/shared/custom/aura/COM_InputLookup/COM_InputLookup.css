@@ -1,0 +1,47 @@
+/*------------------------------------------------------------
+Author:        Miroslaw Milo
+Company:       Nike/Polsource
+Description:   Css improvements for COM_InputLookup component
+History
+<Date>      <Authors Name>     <Brief Description of Change>
+28.11.2017  Miroslaw Milo       creation
+------------------------------------------------------------*/
+.THIS .search-results{
+    z-index: 7000;
+}
+
+.THIS .search-results .slds-dropdown{
+    float: right;
+    position: static;
+    margin-top: 0;
+    width: 66%;
+    max-width: 66%;
+    overflow: auto;
+    max-height: 200px;
+
+    -o-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
+    transform: none;
+}
+
+.THIS .slds-has-error .slds-form-element__help{
+    float: right;
+    position: static;
+    margin-top: 0;
+}
+
+.THIS .no-records{
+    padding: .5rem .75rem;
+    display: block;
+    text-align: left;
+}
+
+.THIS .is-disabled .slds-required{
+    display: none;
+}
+
+.THIS .is-disabled .slds-form-element__control .slds-button--icon{
+    display: none;
+}

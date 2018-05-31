@@ -1,0 +1,39 @@
+<aura:component description="COM_TableRow">
+    <aura:attribute name="tableName" type="String" />
+    <aura:attribute name="columns" type="Object[]" />
+    <aura:attribute name="items" type="List" />
+    <aura:attribute name="index" type="Integer" />
+
+    <aura:attribute name="isChecked" type="Boolean" default="false" />
+    <aura:attribute name="enableCheckboxes" type="Boolean" default="false" />
+    <aura:attribute name="enableRadios" type="Boolean" default="false" />
+
+    <aura:registerEvent name="COM_TableRowCheckboxEvent" type="c:COM_TableRowCheckboxEvent" />
+
+    <tr>
+        <aura:if isTrue="{!v.enableCheckboxes}">
+            <td scope="row" class="checkbox">
+                <div class="slds-truncate">
+                    <lightning:input type="checkbox"
+                                     checked="{!v.isChecked}"
+                                     onchange="{!c.handleCheckboxChange}" />
+                </div>
+            </td>
+        </aura:if>
+        <aura:if isTrue="{!v.enableRadios}">
+            <td scope="row" class="checkbox">
+                <div class="slds-truncate">
+                    <lightning:input type="radio"
+                                     name="{!v.tableName}"
+                                     value="{!v.index}"
+                                     checked="{!v.isChecked}"
+                                     onchange="{!c.handleCheckboxChange}" />
+                </div>
+            </td>
+        </aura:if>
+        <!-- TODO: It should be renamed to Table Cell instead of Table Column! -->
+        <aura:iteration items="{!v.columns}" var="column">
+            <c:COM_TableColumn items="{!v.items}" column="{!column}" index="{!v.index}"/>
+        </aura:iteration>
+    </tr>
+</aura:component>

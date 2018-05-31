@@ -1,0 +1,27 @@
+<aura:component>
+    <aura:attribute name="iconName" type="String" required="true" />
+    <aura:attribute name="size"     type="String" required="true" />
+    <aura:attribute name="class"    type="String" required="true" />
+    <aura:attribute name="color"    type="String" required="true" />
+    <aura:attribute name="tooltip"  type="String" required="true" />
+
+    <aura:attribute name="uniqueId"        type="String"  default="false" access="private" />
+    <aura:attribute name="isDoneRendering" type="Boolean" default="false" access="private"/>
+    <aura:attribute name="showTooltip"     type="Boolean" default="false" access="private" />
+
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}" />
+
+    <style aura:id="css" />
+
+    <span class="slds-is-relative">
+        <span onmouseover="{!c.toggleTooltip}" onmouseout="{!c.toggleTooltip}">
+            <lightning:icon iconName="{#v.iconName}" size="{#v.size}" class="{!v.class + ' extended-icon-' + v.uniqueId}" />
+        </span>
+
+        <div class="{!'slds-popover slds-popover_tooltip slds-nubbin_top-right slds-text-align_left icon-tooltip' + (v.showTooltip ? ' slds-rise-from-ground' : ' slds-fall-into-ground')}" role="tooltip">
+            <div class="slds-popover__body">
+                {!v.tooltip}
+            </div>
+        </div>
+    </span>
+</aura:component>

@@ -1,0 +1,28 @@
+{
+    "country": "US",
+    "edition": "Enterprise",
+    "hasSampleData" : true,
+    "features": [
+        "PersonAccounts",
+        "ServiceCloud",
+        "LightningServiceConsole",
+        "CustomApps",
+        "CustomTabs",
+        "AuthorApex",
+        "DefaultWorkflowUser",
+        "API"
+    ],
+    "orgPreferences": {
+        "enabled": [
+            "S1DesktopEnabled",
+            "IsKnowledgeEnabled",
+            "IsLiveAgentEnabled",
+            "ChatterEnabled",
+            "ShowArticleSummariesInternalApp",
+            "IsCreateEditOnArticlesTabEnabled"
+        ],
+        "disabled": []
+    },
+    "orgName": "Dev",
+    "adminEmail": ""
+}

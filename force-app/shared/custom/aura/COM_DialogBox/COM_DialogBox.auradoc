@@ -1,0 +1,13 @@
+<aura:documentation>
+    <aura:description>
+        Dialog/Popup/Modal layer based on SLDS: <br />
+        <a href="https://www.lightningdesignsystem.com/components/modals">https://www.lightningdesignsystem.com/components/modals</a>
+
+        The component has been improved by:
+        <ul>
+            <li>Auto close on click in background outside the modal</li>
+            <li>Salesforce lightning header navigation is hidden under overlay</li>
+        </ul>
+
+    </aura:description>
+</aura:documentation>

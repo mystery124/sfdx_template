@@ -1,0 +1,27 @@
+<aura:component>
+    <aura:attribute name="label"           type="String"  required="true" />
+    <aura:attribute name="value"           type="Object" />
+    <aura:attribute name="iconName"        type="String" />
+    <aura:attribute name="onIconClick"     type="Object" />
+    <aura:attribute name="alternativeText" type="String"  required="true" />
+    <aura:attribute name="required"        type="Boolean" default="false" />
+    <aura:attribute name="showIcon"        type="Boolean" default="true" />
+    <aura:attribute name="maxlength"       type="String" />
+
+    <div class="slds-is-relative slds-m-bottom_small">
+        <lightning:input label="{#v.label}" 
+                         value="{!v.value}" 
+                         required="{!v.required}" 
+                         maxlength="{#v.maxlength}" 
+        />
+
+        <lightning:buttonIcon iconName="{#v.iconName}" 
+                              size="medium" 
+                              variant="bare" 
+                              class="{!v.showIcon ? 'info-icon' : 'slds-hide'}" 
+                              onclick="{!v.onIconClick}" 
+                              alternativeText="{#v.alternativeText}"
+                              tabindex="-1"
+        />
+    </div>
+</aura:component>

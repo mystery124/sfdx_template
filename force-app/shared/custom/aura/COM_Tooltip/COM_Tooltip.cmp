@@ -1,0 +1,33 @@
+<aura:component description="COM_Tooltip">
+    <aura:attribute name="isOpen"      type="Boolean" default="false" />
+    <aura:attribute name="showClose"   type="Boolean" default="false" />
+    <aura:attribute name="parentTop"   type="Integer" default="0" />
+    <aura:attribute name="parentLeft"  type="Integer" default="0" />
+    <aura:attribute name="parentRight" type="Integer" default="0" />
+
+    <aura:attribute name="nubbinPositionClass" type="String" default="slds-nubbin_bottom-left" />
+    <aura:attribute name="headerComponents"    type="Aura.Component[]" />
+
+    <aura:handler name="change" value="{!v.isOpen}" action="{!c.onOpenChange}" />
+
+    <div>
+        <section aura:id="popoverContainer"
+                 class="{!'slds-popover large ' + (v.isOpen ? ' slds-rise-from-ground' : ' slds-fall-into-ground')}"
+                 onmouseenter="{!c.handleDialogOpen}" 
+                 onmouseleave="{!c.handleDialogClose}"
+        >
+            <lightning:buttonIcon class="{#concat('slds-button slds-button_icon slds-button_icon-small slds-float_right slds-popover__close slds-button_icon ', (v.showClose ? '' : 'slds-hide') )}"
+                                  onclick="{!c.handleDialogClose}"
+                                  iconName="utility:close"
+                                  size="xx-small"
+                                  title="{#$Label.c.Close}"
+            />
+            <header class="{!empty(v.headerComponents) ? 'slds-hide' : 'slds-popover__header'}">
+                {!v.headerComponents}
+            </header>
+            <div class="slds-popover__body">
+                {!v.body}
+            </div>
+        </section>
+    </div>
+</aura:component>

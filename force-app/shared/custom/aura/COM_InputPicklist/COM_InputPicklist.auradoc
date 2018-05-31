@@ -1,0 +1,14 @@
+<aura:documentation>
+    <aura:description>Documentation for COM_InputPicklist</aura:description>
+    <aura:example name="COM_InputPicklist" ref="c:COM_InputPicklist" label="COM_InputPicklist">
+        Input picklist field with multiselect option available.
+        <!--
+           <c:COM_InputPicklistlist options="" label="" selectedItems="" multiple=""/>
+            <aura:set attribute=”options”>List of <code>COM_BaseComponentService.PicklistValue[]</code></aura:set>
+            <aura:set attribute=”selectedItems”>String of selected items, in case multiple values separated
+                by <code>;</code></aura:set>
+            <aura:set attribute=”multiple”>Boolean flag indicating if picklist is multipicklist</aura:set>
+            <aura:set attribute=”label”>Label of the field</aura:set>
+        -->
+    </aura:example>
+</aura:documentation>

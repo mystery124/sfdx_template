@@ -1,0 +1,19 @@
+.THIS .warning-button-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.THIS .warning-icon-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateX(25%) translateY(-50%);
+}
+
+.THIS .tooltip {
+    position: absolute; 
+    top: 22px; 
+    left: 78px;
+    width: 15rem;
+}

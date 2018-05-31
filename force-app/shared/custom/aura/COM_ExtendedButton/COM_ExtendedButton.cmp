@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="iconName" type="String" default="" />
+    <aura:attribute name="label" type="String" /> 
+    <aura:attribute name="isDisabled" type="Boolean" default="false" /> 
+    <aura:attribute name="onClick" type="Object" />
+    <aura:attribute name="tooltipText" type="String" default="" />
+
+    <div>
+        <div class="warning-button-wrapper">
+            <div class="slds-form-element" aria-describedby="help">
+                <div class="{!'warning-icon-wrapper' + (and(!!v.iconName, v.iconName != '') ? '' : ' slds-hide')}" onmouseover="{!c.toggleTooltip}" onmouseout="{!c.toggleTooltip}">
+                    <lightning:icon iconName="{!v.iconName}" size="x-small" />
+                </div>
+
+                <lightning:button variant="neutral" label="{!v.label}" disabled="{!v.isDisabled}" onclick="{!v.onClick}"/>
+            </div>
+            <aura:if isTrue="{!and(!!v.tooltipText, v.tooltipText != '')}">
+                <div class="slds-popover slds-popover_tooltip slds-nubbin_top-left slds-fall-into-ground tooltip" role="tooltip" id="help" aura:id="tooltip">
+                    <div class="slds-popover__body">{!v.tooltipText}</div>
+                </div>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

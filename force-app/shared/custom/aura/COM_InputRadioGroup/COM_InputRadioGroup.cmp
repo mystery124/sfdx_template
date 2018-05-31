@@ -1,0 +1,35 @@
+<aura:component description="COM_InputRadioGroup">
+    <aura:attribute name="label" type="String" default=""/>
+    <aura:attribute name="options" type="Object[]"/>
+    <aura:attribute name="value" type="Object"/>
+    <aura:attribute name="class" type="String" default="inline-radio auto-width"/>
+    <aura:attribute name="isBoolean" type="Boolean" default="true"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="privateValue" type="Boolean" access="private"/>
+
+    <aura:handler name="change" value="{!v.value}" action="{!c.handleChange}"/>
+
+    <fieldset class="slds-form-element">
+        <legend class="slds-form-element__legend slds-form-element__label">{#v.label}</legend>
+        <div class="slds-form-element__control">
+            <lightning:input class="{#v.class}"
+                             disabled="{!v.disabled}"
+                             type="radio"
+                             name="{!'radio0-' + globalId}"
+                             label="{!v.options[0].label}"
+                             value="0"
+                             onchange="{!c.handleRadioChange}"
+                             checked="{!v.privateValue}"
+            />
+            <lightning:input class="{#v.class}"
+                             disabled="{!v.disabled}"
+                             type="radio"
+                             name="{!'radio1-' + globalId}"
+                             label="{!v.options[1].label}"
+                             value="1"
+                             onchange="{!c.handleRadioChange}"
+                             checked="{!and(v.privateValue != null, not(v.privateValue))}"
+            />
+        </div>
+    </fieldset>
+</aura:component>

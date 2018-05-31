@@ -1,0 +1,76 @@
+<!--
+Author:        Miroslaw Milo
+Company:       Nike/Polsource
+Zone:          Europe
+Description:   Input Lookup Component
+Inputs:        sObjectName - API Name of Lookup object
+               value - Id of sObject record
+               label
+               required
+               disabled
+               validity - validity object, more at lightning:input docs
+History
+<Date>      <Authors Name>     <Brief Description of Change>
+28.11.2017  Miroslaw Milo       creation
+ -->
+<aura:component description="COM_InputLookup"
+                extends="c:COM_CommonComponent"
+                controller="COM_InputLookupCtrl">
+
+    <aura:attribute name="sObjectName" type="String" required="true"/>
+    <aura:attribute name="label" type="String"/>
+    <aura:attribute name="value" type="String"/>
+    <aura:attribute name="searchTerm" type="String" default="" />
+    <aura:attribute name="required" type="Boolean" default="false"/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="validity" type="Object" default="{valid: true}" />
+
+    <aura:attribute name="searchResults" type="Object" description="COM_InputLookupService.LookupRecord[]" access="private" />
+    <aura:attribute name="showResults" type="Boolean" access="private" default="false" />
+    <aura:attribute name="isLoading" type="Boolean" access="private" default="false" />
+    <aura:attribute name="isInitiated" type="Boolean" access="private" default="false" />
+    <aura:attribute name="isMouseOverResults" type="Boolean" access="private" default="false" />
+
+    <aura:handler name="change" value="{!v.value}" action="{!c.handleValueChange}" />
+
+    <aura:method name="showHelpMessageIfInvalid" action="{!c.showHelpMessageIfInvalid}" />
+
+    <div aura:id="mainContainer">
+        <lightning:input label="{#v.label}"
+                         type="search"
+                         class="{!v.disabled ? 'is-disabled' : ''}"
+                         disabled="{!v.disabled}"
+                         required="{#v.required}"
+                         aura:id="searchInput"
+                         isLoading="{!v.isLoading}"
+                         onchange="{!c.handleSearchChange}"
+                         onblur="{!c.handleOnBlur}"
+                         value="{!v.searchTerm}"/>
+
+        <div class="{!'search-results ' + (v.showResults ? '' : 'slds-hide')}"
+             aura:id="searchResult"
+             onmouseover="{!c.handleResultMouseOver}"
+             onmouseout="{!c.handleResultMouseOut}">
+            <div class="slds-dropdown">
+                <ul class="slds-dropdown__list'">
+                    <aura:iteration items="{!v.searchResults}" var="row">
+                        <li class="slds-dropdown__item">
+                            <a title="{!row.id}"
+                               data-value="{!row.id}"
+                               data-name="{!row.name}"
+                               onclick="{!c.handleResultSelect}"
+                            >
+                                <span class="slds-truncate">
+                                    {!row.name}
+                                </span>
+                            </a>
+                        </li>
+                    </aura:iteration>
+                    <li class="{!empty(v.searchResults) ? '' : 'slds-hide'}">
+                        <span class="no-records">{#$Label.c.NoRecordsFound}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,30 @@
+<aura:component>
+    <aura:attribute name="label"       type="String" />
+    <aura:attribute name="collapsible" type="Boolean" default="true" />
+    <aura:attribute name="isOpen"      type="Boolean" default="true" />
+    <aura:attribute name="withBorders" type="Boolean" default="false" />
+
+    <div class="{!(or(v.isOpen, not(v.collapsible)) ? 'slds-is-open' : '') + ' slds-section ' + (v.withBorders ? 'slds-border_left slds-border_right slds-border_top slds-border_bottom' : '')}">
+        <h3 class="{!empty(v.label) ? 'slds-hide' : ((v.collapsible ? '' : 'slds-theme_shade') + ' slds-section__title')}">
+            <aura:if isTrue="{!v.collapsible}">
+                <lightning:button variant="base" 
+                                  label="{!v.label}" 
+                                  iconName="{!v.isOpen ? 'utility:chevrondown' : 'utility:chevronright'}" 
+                                  iconPosition="left" 
+                                  onclick="{!c.toggleSection}" 
+                                  class="slds-section__title-action section-button" 
+                />
+
+                <aura:set attribute="else">
+                    <span class="slds-truncate slds-p-horizontal_small" title="{!v.label}">
+                        {!v.label}
+                    </span>
+                </aura:set>
+            </aura:if>
+        </h3>
+
+        <div class="slds-section__content">
+            {!v.body}
+        </div>
+    </div>
+</aura:component>

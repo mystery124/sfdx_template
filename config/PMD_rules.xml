@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ruleset name="PMD.rul" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+  <description>PMD Rules for Nike Salesforce Project</description>
+
+  <rule ref="rulesets/apex/ruleset.xml"></rule>
+
+  <rule ref="rulesets/ecmascript/basic.xml">
+	<exclude name="AvoidTrailingComma" />
+  </rule>
+
+  <rule ref="rulesets/ecmascript/braces.xml"></rule>
+
+  <rule ref="rulesets/ecmascript/controversial.xml"></rule>
+
+  <rule ref="rulesets/ecmascript/unnecessary.xml"></rule>
+
+  <exclude-pattern>.*/classes/AD_AddressDoctorWebservice.cls</exclude-pattern>
+  <exclude-pattern>.*/staticresources/SimplifiedDesktopResources/SC_ClaimsConfirmationPrint/JsBarcode.all.min.js</exclude-pattern>
+
+</ruleset>

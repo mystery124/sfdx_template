@@ -1,0 +1,13 @@
+.THIS .input-text-padded{
+    padding: 0 2rem;
+}
+.THIS .lookup-box {
+    width: 510px;
+    margin-left: 15px;
+}
+
+.THIS input.search-box {
+   line-height: 34px;
+   min-height: 34px;
+   height: 34px;
+}

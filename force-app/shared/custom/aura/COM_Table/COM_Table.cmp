@@ -1,0 +1,33 @@
+<aura:component description="COM_Table">
+    <aura:attribute name="tableName" type="String" />
+    <aura:attribute name="columns" type="Object[]" />
+    <aura:attribute name="items" type="List" />
+    <aura:attribute name="enableCheckboxes" type="Boolean" default="false" />
+    <aura:attribute name="enableRadios" type="Boolean" default="false" />
+
+    <table class="slds-table slds-no-row-hover slds-table_bordered">
+        <thead>
+            <tr class="slds-text-title">
+                <aura:if isTrue="{!or(v.enableCheckboxes, v.enableRadios)}">
+                    <th scope="col"></th>
+                </aura:if>
+                <aura:iteration items="{!v.columns}" var="column">
+                    <th scope="col">
+                        <div class="slds-truncate" title="{#column.label}">{#column.label}</div>
+                    </th>
+                </aura:iteration>
+            </tr>
+        </thead>
+        <tbody aura:id="tableBody">
+            <aura:iteration items="{!v.items}" var="item" indexVar="i">
+                <c:COM_TableRow columns="{!v.columns}"
+                                tableName="{#v.tableName}"
+                                enableCheckboxes="{!v.enableCheckboxes}"
+                                enableRadios="{!v.enableRadios}"
+                                items="{!v.items}"
+                                index="{!i}"
+                />
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

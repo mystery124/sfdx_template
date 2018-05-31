@@ -1,0 +1,28 @@
+<aura:component description="COM_InputCurrency">
+
+    <aura:attribute name="value" type="String" required="true"/>
+    <aura:attribute name="label" type="String" />
+    <aura:attribute name="max" type="Decimal" default="999999.99" />
+    <aura:attribute name="step" type="Decimal" default="0.01" />
+    <aura:attribute name="currencyCode" type="String" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="validity" type="Object" default="{valid: true}" />
+
+    <aura:method name="showHelpMessageIfInvalid" action="{!c.showHelpMessageIfInvalid}" />
+
+    <div>
+        <div class="slds-is-relative">
+            <lightning:input aura:id="currencyInput"
+                             disabled="{!v.disabled}"
+                             label="{#v.label}"
+                             max="{#v.max}"
+                             type="number"
+                             step="{#v.step}"
+                             class="currency-position"
+                             value="{!v.value}" />
+            <div class="{!(empty(v.currencyCode) ? 'slds-hide' : 'currency-code')}">
+                <span class="slds-text-color_weak">{!v.currencyCode}</span>
+            </div>
+        </div>
+    </div>
+</aura:component>

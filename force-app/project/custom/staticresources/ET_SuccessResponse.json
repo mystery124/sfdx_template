@@ -1,0 +1,134 @@
+{
+  "header": {
+    "success": true,
+    "dateTime": "2017-10-16T08:42:14.406Z",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https:\/\/ecn85-www.nikedev.com\/events-api\/v1\/eventRegistrations?nuid=24E95B0B50769062E0533CAA0C0A4BD2&email=mueljason@gmail.com&startDateRange=between:2016-10-16\/2018-10-16"
+      }
+    ]
+  },
+  "body": [
+    {
+      "event": {
+        "id": 791839,
+        "startDate": "2016-11-28T13:06:00",
+        "startDateUTC": "2016-11-28T13:06:00.000-05:00",
+        "endDate": "2016-11-28T14:06:00",
+        "endDateUTC": "2016-11-28T14:06:00.000-05:00",
+        "openDate": "2016-11-27T13:06:00",
+        "openDateUTC": "2016-11-27T13:06:00.000-05:00",
+        "closeDate": "2016-11-28T12:06:00",
+        "closeDateUTC": "2016-11-28T12:06:00.000-05:00",
+        "category": {
+          "id": 1,
+          "category": "Running",
+          "emailOptInCode": "RUN_EVENTS",
+          "hexColor": "#cbff00"
+        },
+        "eventValidationTypeId": 1,
+        "startDateHasTime": true,
+        "endDateHasTime": true,
+        "eventDetails": [
+          {
+            "id": 927540,
+            "eventId": 791839,
+            "language": {
+              "id": 1,
+              "displayName": "English - United States",
+              "languageCode": "en",
+              "countryCode": "en",
+              "locale": "en_US"
+            },
+            "eventReference": {
+              "name": "BOSTON LONG RUN 11\/28",
+              "location": "Nike Boston",
+              "shortDescription": "This is the LSD run - we\u2019ll cover a long, social, distance. You bring your social skills and we\u2019ll bring the music, snacks and support you\u2019ll need to go the extra miles.",
+              "thumbnailUrl": "http:\/\/s3.nikecdn.com\/events-platform\/pre-prod\/NET_Admin\/header\/2016-09-16_424_NRC.jpg",
+              "tileUrl": "http:\/\/s3.nikecdn.com\/events-platform\/pre-prod\/NET_Admin\/header\/2014-11-29_6476_mobile_p1_london2.jpg",
+              "textColor": "#ffffff",
+              "eventDetailId": 927540,
+              "enabled": true
+            },
+            "name": "Boston Long Run 11\/28",
+            "meetingPointUrl": "https:\/\/goo.gl\/maps\/x1KuI",
+            "meetingPointDescription": "Nike Boston",
+            "meetingPointDescription2": "200 Newbury Street, Boston, MA",
+            "headline": "Dial up your distance",
+            "subHeadline": "Nike Boston",
+            "headerImageUrl": "http:\/\/s3.nikecdn.com\/events-platform\/prod\/NET_Admin\/header\/2016-02-29_516_NRC_Boston_Desktop.jpg",
+            "mobileHeaderImageUrl": "http:\/\/s3.nikecdn.com\/events-platform\/prod\/NET_Admin\/header\/2016-02-29_516_NRC_Boston_Desktop.jpg"
+          }
+        ],
+        "waitListRegistration": false
+      },
+      "url": "https:\/\/ecn85-www.nikedev.com\/events-registration\/event?id=791839",
+      "attended": false,
+      "notAttended": false,
+      "cancelled": false,
+      "registered": true,
+      "waitlist": false
+    },
+    {
+      "event": {
+        "id": 638584,
+        "startDate": "2016-10-21T22:05:00",
+        "startDateUTC": "2016-10-21T22:05:00.000-04:00",
+        "endDate": "2016-10-21T23:05:00",
+        "endDateUTC": "2016-10-21T23:05:00.000-04:00",
+        "openDate": "2016-10-09T22:05:00",
+        "openDateUTC": "2016-10-09T22:05:00.000-04:00",
+        "closeDate": "2016-10-13T21:05:00",
+        "closeDateUTC": "2016-10-13T21:05:00.000-04:00",
+        "category": {
+          "id": 1,
+          "category": "Running",
+          "emailOptInCode": "RUN_EVENTS",
+          "hexColor": "#cbff00"
+        },
+        "eventValidationTypeId": 1,
+        "startDateHasTime": true,
+        "endDateHasTime": true,
+        "eventDetails": [
+          {
+            "id": 762005,
+            "eventId": 638584,
+            "language": {
+              "id": 1,
+              "displayName": "English - United States",
+              "languageCode": "en",
+              "countryCode": "en",
+              "locale": "en_US"
+            },
+            "eventReference": {
+              "name": "BOSTON LONG RUN 10\/10",
+              "location": "Nike Boston",
+              "shortDescription": "This is the LSD run - we\u2019ll cover a long, social, distance. You bring your social skills and we\u2019ll bring the music, snacks and support you\u2019ll need to go the extra miles.",
+              "thumbnailUrl": "http:\/\/s3.nikecdn.com\/events-platform\/pre-prod\/NET_Admin\/header\/2016-09-16_424_NRC.jpg",
+              "tileUrl": "http:\/\/s3.nikecdn.com\/events-platform\/pre-prod\/NET_Admin\/header\/2014-11-29_6476_mobile_p1_london2.jpg",
+              "textColor": "#ffffff",
+              "eventDetailId": 762005,
+              "enabled": true
+            },
+            "name": "Boston Long Run 10\/10",
+            "meetingPointUrl": "https:\/\/goo.gl\/maps\/x1KuI",
+            "meetingPointDescription": "Nike Boston",
+            "meetingPointDescription2": "200 Newbury Street, Boston, MA",
+            "headline": "Dial up your distance",
+            "subHeadline": "Nike Boston",
+            "headerImageUrl": "http:\/\/s3.nikecdn.com\/events-platform\/prod\/NET_Admin\/header\/2016-02-29_516_NRC_Boston_Desktop.jpg",
+            "mobileHeaderImageUrl": "http:\/\/s3.nikecdn.com\/events-platform\/prod\/NET_Admin\/header\/2016-02-29_516_NRC_Boston_Desktop.jpg"
+          }
+        ],
+        "waitListRegistration": false
+      },
+      "url": "https:\/\/ecn85-www.nikedev.com\/events-registration\/event?id=638584",
+      "attended": false,
+      "notAttended": false,
+      "cancelled": false,
+      "registered": true,
+      "waitlist": false
+    }
+  ]
+}

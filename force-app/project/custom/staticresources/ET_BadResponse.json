@@ -1,0 +1,21 @@
+{
+  "header": {
+    "success": false,
+    "dateTime": "2017-10-16T12:50:24.414Z",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://test.com/events-api/v1/eventRegistrations?nuid=24E95B0B50769062E0533CAA0C0A4BD2&email=mueljason@gmail.com&startDateRange=!!!!between:2016-10-16/2018-10-16&sorting=startDate:desc"
+      }
+    ],
+    "errors": {
+      "id": "2c7e6079-094c-4800-9011-0914ebd0c7b8",
+      "items": [
+        {
+          "code": 100,
+          "message": "Constraint Violation: constraint=DateTimeRangeExpressionCheck; path=startDateRange; message={com.brand.events.resource.expression.constraints.DateTimeRangeExpressionCheck.message}; invalidValue=!!!!between:2016-10-16/2018-10-16"
+        }
+      ]
+    }
+  }
+}

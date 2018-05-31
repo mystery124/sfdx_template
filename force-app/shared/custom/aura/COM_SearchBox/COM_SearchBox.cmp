@@ -1,0 +1,45 @@
+<aura:component description="COM_SearchBox" extends="c:COM_CommonComponent">
+    <aura:attribute name="searchText" type="String"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="isManualSearch" type="Boolean" default="false"/>
+    <aura:attribute name="placeholder" type="String" default="{#$Label.c.SearchRecords}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.searchText}" action="{!c.setSearchInput}"/>
+
+    <div class="slds">
+        <div class="lookupBox" data-select="multi" data-scope="single" data-typeahead="true">
+
+            <div class="slds-form-element">
+                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left-right">
+                    <lightning:icon class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default"
+                                    iconName="utility:search" size="x-small"
+                                    alternativeText="{#$Label.c.SearchIcon}"
+                    />
+
+                    <ui:inputText aura:id="searchInput" keyup="{!c.search}"
+                                  class="slds-input input-text-padded search-box" updateOn="keyup"
+                                  placeholder="{!v.placeholder}"
+                    />
+                    <div class="slds-input__icon-group slds-input__icon-group_right">
+                        <div aura:id="spinner" 
+                             role="status"
+                             class="{!v.showSpinner ? 'slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner' : 'slds-hide'}"
+                        >
+                            <span class="slds-assistive-text">{#$Label.c.Loading}</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+
+                        <lightning:buttonIcon iconName="utility:clear"
+                                              class="slds-input__icon slds-input__icon_right slds-p-right_medium"
+                                              variant="bare"
+                                              alternativeText="{#$Label.c.Clear}" 
+                                              onclick="{!c.clearBox}"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

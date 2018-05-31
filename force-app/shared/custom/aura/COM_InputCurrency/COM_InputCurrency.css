@@ -1,0 +1,12 @@
+.THIS .currency-position > .slds-form-element__control{
+    position: relative;
+}
+.THIS .currency-position > .slds-form-element__control input{
+    padding-right: 2rem;
+}
+.THIS .currency-code{
+    position: absolute;
+    right: 6px;
+    top: 0;
+    line-height: 32px;
+}

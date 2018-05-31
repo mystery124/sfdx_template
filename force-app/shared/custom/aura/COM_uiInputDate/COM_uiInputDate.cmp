@@ -1,0 +1,45 @@
+<aura:component description="COM_uiInputDate">
+    <ltng:require styles="{#$Resource.SimplifiedDesktopResources + '/css/DatePicker.css'}" />
+
+    <aura:attribute name="label" type="String" default=""/>
+    <aura:attribute name="value" type="Object" default=""/>
+    <aura:attribute name="disabled" type="Boolean" default="false"/>
+    <aura:attribute name="disableManualInput" type="Boolean" default="false"/>
+    <aura:attribute name="format" type="String" default="{#$Locale.dateFormat}"/>
+    <aura:attribute name="class" type="String" default=""/>
+    <aura:attribute name="inputClass" type="String" default=""/>
+    <aura:attribute name="validity" type="Map" default="{valid: true}" />
+    <aura:attribute name="maxDate" type="Date" description="Max date value validation"/>
+    <aura:attribute name="messageWhenMaxDateError" type="String" description="Error message when value has bigger date than specified in max date validation"/>
+    <aura:attribute name="minDate" type="Date" description="Min date value validation" />
+    <aura:attribute name="messageWhenMinDateError" type="String" description="Error message when value has lower date than specified in min date validation" />
+    <aura:attribute name="minDateValidationType" type="String" description="error | warning" default="error" />
+    <aura:attribute name="required" type="Boolean" default="false" />
+
+    <aura:attribute name="error" type="String" access="private"/>
+
+    <aura:method name="showHelpMessageIfInvalid" action="{!c.showHelpMessageIfInvalid}" />
+
+    <div class="{!'slds-form-element dateField ' + v.class + (v.validity.valid ? '' : ' slds-has-error')}">
+        <div class="slds-form-element__label">
+            <abbr class="{!v.required ? 'slds-required' : 'slds-hide'}" title="required">*</abbr>
+            <span>{#v.label}</span>
+        </div>
+
+        <div class="slds-form-element__control">
+            <ui:inputDate aura:id="inputField"
+                          value="{!v.value}"
+                          blur="{!c.showHelpMessageIfInvalid}"
+                          class="{!v.inputClass + ' slds-input' + (v.disableManualInput ? ' disable-manual-input' : '')}"
+                          disabled="{!v.disabled}"
+                          displayDatePicker="true"
+                          format="{#v.format}"
+                          required="{!v.required}"
+            />
+        </div>
+
+        <div class="{!empty(v.error) ? 'slds-hide' : 'slds-form-element__help'}">
+            {!v.error}
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,9 @@
+.THIS .slds-popover{
+    position: fixed;
+    z-index: 9999;
+}
+
+.THIS .large{
+    width: 575px;
+    max-height: 568px;
+}

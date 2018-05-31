@@ -1,0 +1,17 @@
+{
+  "header": {
+    "success": true,
+    "dateTime": "2017-10-16T19:43:23.418Z",
+    "links": [
+      {
+        "rel": "self",
+        "href": "https://test.com/events-api/v1/accessTokens"
+      }
+    ]
+  },
+  "body": {
+    "clientExpirationTimestamp": "2018-09-12T07:00:00.000Z",
+    "tokenExpirationTimestamp": "2017-10-16T20:43:23.416Z",
+    "token": "eyJhbGciOiJSUzI1NiJ9.eyJzY3AiOiJhcGktY2xpZW50IiwiZXhwIjoxNTA4MTg2NjAzLCJzdWIiOiJlMDkzMzQ0MC1mZDg3LTRhN2ItYmVjNy1hODM3NDUyMGEzYzYiLCJhdWQiOlsiZXZlbnRzLWFwaSJdLCJpc3MiOiJlMDkzMzQ0MC1mZDg3LTRhN2ItYmVjNy1hODM3NDUyMGEzYzYifQ.fdFrOACEpxKRqVDtLiVYV8CY5wLqooBGBKBgkAYLMrrhr3Wbg7NYlvoxTq7OtyK2dt0dtqLdl1qRJlHeCO1grccrfTTRt_W_Qv3A_aeibqzAMcSMFXxNep0qkCBK0Ejs_5nwDcUW3xr3SybDr1DStS9LYTXvbtpgVgBhpf4cqeblltUzOQxmjpTFxsx_shPvdlYHBu0szb4vUd2oqzUbXc11Ou9Vj5MGQgzoG73SC03VuMW5GjyR-fpYmWsSUXDSRAPLAJdFqvcYVQpADd0WiV00lNK-RE5SNX6Ja01qSOI2STL2qMP4HCrxtZNDNjc3Fed80u-f5fssqxtFAPE15A"
+  }
+}

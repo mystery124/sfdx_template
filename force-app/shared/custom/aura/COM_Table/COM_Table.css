@@ -1,0 +1,10 @@
+.THIS .checkbox{
+    width: 20px;
+}
+.THIS .checkbox .slds-form-element{
+    margin-top: 0;
+    min-height: 0;
+}
+.THIS .checkbox .slds-form-element__label{
+    display: none;
+}
