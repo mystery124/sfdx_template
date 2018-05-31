@@ -193,6 +193,7 @@ public class JIT_UserHandlerService {
     }
 
     private void setUserFields(User u, Map<String, String> attributesWithDefaults) {
+        /*
         List<UserProvisioningFieldMapping__mdt> userProvisioningMappings = findAttributeFieldMapping();
 
         for (UserProvisioningFieldMapping__mdt mapping : userProvisioningMappings) {
@@ -202,8 +203,9 @@ public class JIT_UserHandlerService {
                 u.put(mapping.FieldAPIName__c, attributesWithDefaults.get(mapping.SAMLAttributeName__c));
             }
         }
+        */
     }
-
+/*
     private List<UserProvisioningFieldMapping__mdt> findAttributeFieldMapping(){
         List<UserProvisioningFieldMapping__mdt> userProvisioningMappings = [
             SELECT FieldAPIName__c, SAMLAttributeName__c, AllowBlank__c
@@ -211,7 +213,7 @@ public class JIT_UserHandlerService {
         ];
         return userProvisioningMappings;
     }
-
+*/
     private User setUserProfileIfChanged(User u, String groupSet){
         String profileName = calculateProfileNameAndValidateAccess(groupSet);
 
@@ -278,6 +280,7 @@ public class JIT_UserHandlerService {
         private List<UserProvisioningPermissionMapping> userPermissionMappings;
 
         public List<UserProvisioningPermissionMapping> findAttributePermissionMapping() {
+            /*
             if (userPermissionMappings == null) {
                 List<UserProvisioningPermissionMapping__mdt> userPermissionMappingsMTD = [
                     SELECT Certification_Group__c, GeoComp_Group__c, ProfileName__c, Group_Name__c
@@ -290,21 +293,21 @@ public class JIT_UserHandlerService {
                     this.userPermissionMappings.add(new UserProvisioningPermissionMapping(mtd));
                 }
             }
-
+            */
             return this.userPermissionMappings;
         }
     }
 
     public class UserProvisioningPermissionMapping{
         public UserProvisioningPermissionMapping(){}
-
+/*
         public UserProvisioningPermissionMapping(UserProvisioningPermissionMapping__mdt mtdRecord){
             certificationGroup = mtdRecord.Certification_Group__c != null ? mtdRecord.Certification_Group__c : '';
             geoCompGroup       = mtdRecord.GeoComp_Group__c != null ? mtdRecord.GeoComp_Group__c : '';
             profileName        = mtdRecord.ProfileName__c;
             groupName          = mtdRecord.Group_Name__c;
         }
-
+*/
         public String certificationGroup;
         public String geoCompGroup;
         public String profileName;

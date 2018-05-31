@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LiveChatTranscriptEventTrigger__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Enables trigger on LiveChatTranscriptEvent object</description>
+    <externalId>false</externalId>
+    <label>LiveChatTranscriptEventTrigger</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

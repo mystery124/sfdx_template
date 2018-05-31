@@ -3,11 +3,11 @@ private class COM_RecordTypeUtilsTest {
     static testMethod void shouldReturnRecordTypeForObjectTypeAndRecordTypeName() {
         Test.startTest();
         RecordType personAccountRecordType = COM_RecordTypeUtils.getRecordTypeByName(Account.class,
-            COM_GlobalConstants.PERSON_ACCOUNT_RT);
+            'PERSON_ACCOUNT_RT');
         Test.stopTest();
 
         System.assert(personAccountRecordType != null, 'Record Type should be retrieved');
-        System.assertEquals(COM_GlobalConstants.PERSON_ACCOUNT_RT, personAccountRecordType.DeveloperName,
+        System.assertEquals('PERSON_ACCOUNT_RT', personAccountRecordType.DeveloperName,
             'Record Type retrieved should be person account record type');
     }
 

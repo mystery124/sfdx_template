@@ -13,8 +13,7 @@ public class COM_DependentPicklistService extends COM_BaseComponentService{
         List<Picklist_Mapping__mdt> picklists = [
             SELECT Picklist_Value__c
             FROM Picklist_Mapping__mdt
-            WHERE Region__c IN (SELECT Region__c FROM COM_Profiles_Mapping__mdt WHERE Profile_Name__c = :userProfile.Name)
-            AND Picklist_API_Name__c = :picklistApiName AND Object_API_Name__c = :objectApiName
+            WHERE  Picklist_API_Name__c = :picklistApiName AND Object_API_Name__c = :objectApiName
         ];
 
         for(Picklist_Mapping__mdt pm : picklists) {
@@ -30,8 +29,7 @@ public class COM_DependentPicklistService extends COM_BaseComponentService{
         List<Picklist_Mapping__mdt> picklists = [
                 SELECT Picklist_Value__c
                 FROM Picklist_Mapping__mdt
-                WHERE Region__c IN (SELECT Id FROM Region__mdt WHERE Region_Code__c = :region)
-                    AND Picklist_API_Name__c = :picklistApiName
+                WHERE Picklist_API_Name__c = :picklistApiName
                     AND Object_API_Name__c = :objectApiName
         ];
 

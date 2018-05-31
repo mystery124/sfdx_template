@@ -1,11 +1,3 @@
-/*------------------------------------------------------------
-Author:        Miroslaw Milo
-Company:       Nike/Polsource
-Description:   Css improvements for COM_InputLookup component
-History
-<Date>      <Authors Name>     <Brief Description of Change>
-28.11.2017  Miroslaw Milo       creation
-------------------------------------------------------------*/
 .THIS .search-results{
     z-index: 7000;
 }

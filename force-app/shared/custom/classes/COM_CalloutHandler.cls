@@ -36,7 +36,7 @@ public class COM_CalloutHandler {
 
     private void logMessage(String message, String payLoad, Exception e) {
         new COM_Logger(COM_Logger.LogMode.MODE_REST).logMessage(
-                COM_GlobalConstants.DEBUG_LVL_ERROR,
+                'DEBUG',//COM_GlobalConstants.DEBUG_LVL_ERROR,
                 COM_CalloutHandler.class.getName(),
                 'doCallout(COM_CalloutClient client)',
                 message,

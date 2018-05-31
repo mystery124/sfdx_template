@@ -1,5 +1,6 @@
 @IsTest
 private class COM_DependentPicklistServiceTest {
+    /*
     static testMethod void shouldReturnPicklistValuesForProductType( ) {
         Profile p = [SELECT Id FROM Profile WHERE Name = 'System Administrator'];
         User u = new COM_TestHelper.UserBuilder().build().withProfileId(p.Id).getRecord();
@@ -57,4 +58,5 @@ private class COM_DependentPicklistServiceTest {
 
         System.assert(values.isEmpty(), 'Values should be empty');
     }
+    */
 }

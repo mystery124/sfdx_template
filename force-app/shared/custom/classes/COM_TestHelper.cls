@@ -39,7 +39,7 @@ public class COM_TestHelper {
         private Account obj;
 
         public AccountBuilder build() {
-            RecordType personRecType = COM_RecordTypeUtils.getRecordTypeByName(Account.class, COM_GlobalConstants.PERSON_ACCOUNT_RT);
+            RecordType personRecType = COM_RecordTypeUtils.getRecordTypeByName(Account.class, 'PERSON_ACCOUNT_RT');
             obj = new Account(
                     RecordTypeId = personRecType.Id,
                     FirstName = 'Clark',

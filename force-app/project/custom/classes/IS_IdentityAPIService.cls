@@ -30,11 +30,4 @@ public class IS_IdentityAPIService {
     }
 
 
-    public void resetPasswordForUser(String email, Boolean isInternal) {
-        COM_CalloutHandler handler = new COM_CalloutHandler();
-        IS_IdentityPasswordAPIClientContainer.ResetPassword client = 
-            new IS_IdentityPasswordAPIClientContainer.ResetPassword(email, isInternal);
-        String res = (String) handler.doCallout(client);
-    }
-
 }

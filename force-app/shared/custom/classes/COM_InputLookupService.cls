@@ -17,7 +17,7 @@ public class COM_InputLookupService {
         );
 
         if(results.isEmpty()){
-            throw new LookupNotFoundException(Label.InputLookupDefaultNotExists);
+            throw new LookupNotFoundException('InputLookupDefaultNotExists');
         }
 
         return results[0];

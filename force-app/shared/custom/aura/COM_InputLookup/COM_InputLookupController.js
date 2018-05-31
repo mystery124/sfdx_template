@@ -1,11 +1,3 @@
-/*------------------------------------------------------------
-Author:        Miroslaw Milo
-Company:       Nike/Polsource
-Description:   COM_InputLookup component controller
-History
-<Date>      <Authors Name>     <Brief Description of Change>
-28.11.2017  Miroslaw Milo       creation
-------------------------------------------------------------*/
 ({
     handleValueChange: function(component, event, helper) {
         if( ! component.get('v.isInitiated') && helper.valueExistsButNoTerm(component)){

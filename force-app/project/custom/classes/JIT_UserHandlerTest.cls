@@ -15,7 +15,7 @@ private with sharing class JIT_UserHandlerTest {
         );
         return attributes;
     }
-
+/*
     @isTest static void shouldCreateNewUser() {
         //given
         new COM_TestHelper.SystemSettingBuilder().build().save();
@@ -350,4 +350,5 @@ private with sharing class JIT_UserHandlerTest {
             return userPermissiongMappings;
         }
     }
+    */
 }

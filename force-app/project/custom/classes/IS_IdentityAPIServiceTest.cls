@@ -83,60 +83,11 @@ public with sharing class IS_IdentityAPIServiceTest {
         System.assert(exceptionThrown, 'Exception should be thrown');
     }
 
-    @isTest static void shouldResetPassword() {
-        // Prepare test data
-        String email = 'b.wayne@gotham.com';
-        Boolean exceptionThrown = false;
-
-        // Perform test
-        Test.setMock(HttpCalloutMock.class, new COM_CalloutMockHttp(200, 'OK', ''));
-        Test.startTest();
-
-        try {
-            IS_IdentityAPIService service = new IS_IdentityAPIService();
-            service.resetPasswordForUser(email, false);
-        } catch (Exception e) {
-            exceptionThrown = true;
-        }
-
-        Test.stopTest();
-
-        // Verify
-        System.assert(!exceptionThrown, 'Exception shouldnt be thrown');
-    }
-
-    @isTest static void shouldThrowErrorForResetPassword() {
-        // Prepare test data
-        String email = 'b.wayne@gotham.com';
-        Boolean exceptionThrown = false;
-        String exceptionMessage = '';        
-
-        // Perform test
-        Test.setMock(HttpCalloutMock.class, new UnauthorizedErrorResponse());
-        Test.startTest();
-
-        try {
-            IS_IdentityAPIService service = new IS_IdentityAPIService();
-            service.resetPasswordForUser(email, false);
-        } catch (Exception e) {
-            exceptionThrown = true;
-            exceptionMessage = e.getMessage();
-        }
-
-        Test.stopTest();
-
-        // Verify
-        System.assert(exceptionThrown, 'Exception should be thrown');
-        System.assert(exceptionMessage.contains('Unauthorized'), 'Unauthorized Exception should be thrown');
-    }
-
     static StaticResourceCalloutMock getStaticMockup(Integer code, String status, String staticResourceName) {
         StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
         mock.setStaticResource(staticResourceName);
         mock.setStatusCode(code);
         mock.setStatus(status);
-        mock.setHeader(IS_IdentitySearchAPIClientAbstract.HEADER_CONTENT_TYPE,
-            IS_IdentitySearchAPIClientAbstract.HEADER_VALUE_APPLICATION_JSON);
         return mock;
     }
 

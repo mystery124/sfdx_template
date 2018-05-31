@@ -1,18 +1,3 @@
-<!--
-Author:        Miroslaw Milo
-Company:       Nike/Polsource
-Zone:          Europe
-Description:   Input Lookup Component
-Inputs:        sObjectName - API Name of Lookup object
-               value - Id of sObject record
-               label
-               required
-               disabled
-               validity - validity object, more at lightning:input docs
-History
-<Date>      <Authors Name>     <Brief Description of Change>
-28.11.2017  Miroslaw Milo       creation
- -->
 <aura:component description="COM_InputLookup"
                 extends="c:COM_CommonComponent"
                 controller="COM_InputLookupCtrl">

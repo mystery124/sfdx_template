@@ -1,14 +1,3 @@
- /*------------------------------------------------------------
-Author:        Cezary Zeleznicki
-Company:       Nike/Polsource
-Zone:          Europe
-Description:   COM_InputRadioGroup.css
-Inputs:        -
-Test Class:    -
-History
-<Date>      <Authors Name>     <Brief Description of Change>
-15.11.2017  Cezary Zeleznicki       creation
-------------------------------------------------------------*/
 .THIS .slds-form-element .auto-width .slds-form-element__control {
     width: auto;
 }
